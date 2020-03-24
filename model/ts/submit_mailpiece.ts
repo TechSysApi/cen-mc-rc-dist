@@ -1,5 +1,5 @@
 export enum MailpieceFace {
-    TOP, LEFT, RIGHT, FRONT, BACK, BOTTOM
+    TOP, LEFT, RIGHT, FRONT, REAR, BOTTOM, FRONT_LEFT, FRONT_RIGHT, REAR_LEFT, REAR_RIGHT
 }
 
 export enum MailpieceType {
