@@ -1,6 +1,6 @@
 var variables={
   "name": "@ch-post/cen-mc-rc-stream-api",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "description": "cen-mc-rc stream API",
   "scripts": {
     "start": "apikana start src dist",
