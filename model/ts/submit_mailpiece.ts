@@ -104,33 +104,9 @@ export interface RecognitionResult {
     multipleMailpiecdIdRecognized?: boolean;
 
     /**
-     * [extension]
+     * Contains all barcodes/matrix codes identified by the reading system.
      * 
-     * # Code 128
-     * a) Internationaler Barcode
-     *    Beispiel: EP923689367CH
-     *    Validierung: [A-Z]{2}[0-9]{9}[A-Z]{2} (13 Zeichen)
-     * b) Nationaler Barcode
-     *    Beispiel: 994214393000008666
-     *    Validierung: (98|99)[0-9]{16} (18 Zeichen)
-     * c) Produktcode: PRZL (Produkt/Zusatzleistungen)
-     *    Beispiel: 0509
-     *    Validierung: [0-9]{4} (4 Zeichen)
-     * d) BoxId
-     *    Erste zwei Ziffern: Typ der Bod: «45» für ThermoCare-Box, Letzte sechs Ziffern: Seriennummer der Box
-     *    Beispiel: 45093456
-     *    Validierung: [0-9]{8} (8 Zeichen)
-     * e) Förderhilfentyp
-     *    Format: Erste zwei Ziffern: Typ der Förderhilfe, Letzte vier Ziffern: Gewicht der Förderhilfe in Gramm
-     *    Beispiel: 020450
-     *    Validierung: [0-9]{6} (6 Zeichen)
-     * 
-     * # DataMatrix 
-     * Datenfeld: Data Matrix 
-     * - Validierung: ECC200
-     *   Beispiel: 756109025843770000010000000000000000000003489510005501606300
-     *   Validierung: ECC200 (Max. 90 Zeichen)
-     * 
+     * The reading system should read and send all available barcodes/matrix codes. The consuming systems will apply further classification and filtering.
      */
     barCodes?: BarCode[];
 
@@ -165,7 +141,67 @@ export interface RecognitionResult {
 export enum BarCodeSymbology {
     CODE_128, DATA_MATRIX
 }
-export enum BarCodeStatus {
+
+/**
+ * 
+# Description
+
+This type defines the states a barcode can have.
+
+* __NO_BARCDOE__: The barcode/matrix code symbol or the code value could not be detected.
+
+* __DETECTED_AND_RECOGNIZED__: The barcode/matrix code matches one of the below patterns / validation rules
+
+* __DETECTED_AND_NOT_RECOGNIZED__: The barcode/matrix code matches one of the below patterns / validation rules
+
+---
+
+Only recognized barcodes/matrix codes such as productCodes should be used by consuming systems.
+
+Not recognized barcodes can be useful:
+- in case of new barcode formats
+- for systems outside of PL sorting systems
+- for (error) analysis
+
+# Patterns/ Validation Rules:
+
+## CODE_128
+
+    1. __Internationaler Barcode__
+
+        Beispiel: EP923689367CH  
+        Validierung: `[A-Z]{2}[0-9]{9}[A-Z]{2}` (13 Zeichen)
+
+    2. __Nationaler Barcode__
+
+        Beispiel: 994214393000008666  
+        Validierung: `(98|99)[0-9]{16}` (18 Zeichen)
+
+    3. __Produktcode: PRZL (Produkt/Zusatzleistungen)__
+
+        Beispiel: 0509  
+        Validierung: `[0-9]{4}` (4 Zeichen)
+
+    3. __BoxId__
+
+        Erste zwei Ziffern: Typ der Bod: «45» für ThermoCare-Box, Letzte sechs Ziffern: Seriennummer der Box
+        Beispiel: 45093456
+        Validierung: `[0-9]{8}` (8 Zeichen)
+
+    4. __Förderhilfentyp__
+
+        Format: Erste zwei Ziffern: Typ der Förderhilfe, Letzte vier Ziffern: Gewicht der Förderhilfe in Gramm
+        Beispiel: 020450
+        Validierung: `[0-9]{6}` (6 Zeichen)
+
+## DATA_MATRIX 
+Datenfeld: Data Matrix 
+- Validierung: ECC200
+Beispiel: 756109025843770000010000000000000000000003489510005501606300
+Validierung: ECC200 (Max. 90 Zeichen)
+ */
+
+ export enum BarCodeStatus {
     NO_BARCODE, DETECTED_AND_RECOGNIZED, DETECTED_AND_NOT_RECOGNIZED
 }
 
