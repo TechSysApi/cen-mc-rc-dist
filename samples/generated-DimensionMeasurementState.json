@@ -1,9 +1,0 @@
-{
-  "measurementResult": "OK",
-  "measurementRange": "INSIDE",
-  "itemSizeClassification": {
-    "ok": true,
-    "oversized": false,
-    "undersized": true
-  }
-}
