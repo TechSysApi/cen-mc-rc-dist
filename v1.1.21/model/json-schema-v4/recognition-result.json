@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "type": "object",
+  "properties": {
+    "multipleMailpiecdIdRecognized": {
+      "type": "boolean",
+      "description": "If true, multiple identcodes were recognized by the camera."
+    },
+    "barCodes": {
+      "type": "array",
+      "items": {
+        "$ref": "bar-code.json"
+      },
+      "description": "Contains all barcodes/matrix codes identified by the reading system.\r\n\r\nThe reading system should read and send all available barcodes/matrix codes. The consuming systems will apply further classification and filtering."
+    },
+    "location": {
+      "$ref": "location.json"
+    },
+    "dimension": {
+      "$ref": "dimension.json",
+      "description": "[extension]\r\n\r\nParcel dimension."
+    },
+    "weight": {
+      "$ref": "weight.json",
+      "description": "[extension]\r\n\r\nParcel weight."
+    },
+    "legalForTrade": {
+      "$ref": "legal-for-trade.json",
+      "description": "[extension]\r\n\r\nLegal For Trade information."
+    },
+    "binOccupancy": {
+      "$ref": "bin-occupancy-state.json"
+    }
+  },
+  "additionalProperties": false,
+  "id": "RecognitionResult"
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "definitions": {},
+  "type": "string",
+  "enum": [
+    "NO_BARCODE",
+    "DETECTED_AND_RECOGNIZED",
+    "DETECTED_AND_NOT_RECOGNIZED"
+  ],
+  "description": "# Description\r\n\r\nThis type defines the states a barcode can have.\r\n\r\n**NO_BARCODE**: The barcode symbol or the code value could not be detected.\r\n\r\n**DETECTED_AND_RECOGNIZED**: The barcode/matrix code matches at least one of the below patterns / validation rules\r\n\r\n**DETECTED_AND_NOT_RECOGNIZED**: The barcode/matrix code matches none of the below patterns / validation rules\r\n\r\n---\r\n\r\nOnly recognized barcodes/matrix codes such as productCodes should be used by consuming systems.\r\n\r\nNot recognized barcodes can be useful:\r\n- in case of new barcode formats\r\n- for systems outside of PL sorting systems\r\n- for (error) analysis\r\n\r\n# Patterns/ Validation Rules:\r\n\r\n## CODE_128\r\n\r\n   1. **Internationaler Barcode**\r\n\r\n       Beispiel: EP923689367CH  \r\n       Validierung: `[A-Z]{2}[0-9]{9}[A-Z]{2}` (13 Zeichen)\r\n\r\n   2. **Nationaler Barcode**\r\n\r\n       Beispiel: 994214393000008666  \r\n       Validierung: `(98|99)[0-9]{16}` (18 Zeichen)\r\n\r\n   3. **Produktcode: PRZL (Produkt/Zusatzleistungen)**\r\n\r\n       Beispiel: 0509  \r\n       Validierung: `[0-9]{4}` (4 Zeichen)\r\n\r\n   3. **BoxId**\r\n\r\n       Erste zwei Ziffern: Typ der Box: «45» für ThermoCare-Box, Letzte sechs Ziffern: Seriennummer der Box\r\n       Beispiel: 45093456\r\n       Validierung: `[0-9]{8}` (8 Zeichen)\r\n\r\n   4. **Förderhilfentyp**\r\n\r\n       Format: Erste zwei Ziffern: Typ der Förderhilfe, Letzte vier Ziffern: Gewicht der Förderhilfe in Gramm\r\n       Beispiel: 020450\r\n       Validierung: `[0-9]{6}` (6 Zeichen)\r\n\r\n## DATA_MATRIX \r\nDatenfeld: Data Matrix \r\n- Validierung: ECC200\r\nBeispiel: 756109025843770000010000000000000000000003489510005501606300\r\nValidierung: ECC200 (Max. 90 Zeichen)",
+  "id": "BarCodeStatus"
+}

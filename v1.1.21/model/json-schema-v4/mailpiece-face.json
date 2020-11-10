@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "type": "string",
+  "enum": [
+    "TOP",
+    "LEFT",
+    "RIGHT",
+    "FRONT",
+    "REAR",
+    "BOTTOM",
+    "FRONT_LEFT",
+    "FRONT_RIGHT",
+    "REAR_LEFT",
+    "REAR_RIGHT"
+  ],
+  "id": "MailpieceFace"
+}
