@@ -1,0 +1,142 @@
+{
+  "namespace": "TransmitMailpieceAttributes",
+  "name": "main",
+  "type": "record",
+  "doc": "This type contains the result for a mail piece that has been determined by the RC System.",
+  "fields": [
+    {
+      "name": "mailpieceId",
+      "doc": "Represents the national identifier for the mailpiece item.",
+      "type": "string"
+    },
+    {
+      "name": "timestamp",
+      "doc": "[extension]\n\nTimestamp of data collection.",
+      "type": "string"
+    },
+    {
+      "name": "addressResult",
+      "doc": "",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "AddressResult",
+          "fields": [
+            {
+              "name": "code",
+              "doc": "The destination sort code is the outlet group name (Virtuelles Ziel) assigned to the mail piece.\nSpecific values are defined on a per-program basis.",
+              "type": "int"
+            },
+            {
+              "name": "rejectReasons",
+              "doc": "This string element contains a reason why the RC System was unable to determine a result.\nThe sorting machine needs to recognize and count the reject reason in order to\na) stop the induction when the reject reason occured max. times in a row\nb) generate live-data / statistics",
+              "type": [
+                "null",
+                {
+                  "type": "array",
+                  "items": {
+                    "name": "rejectReasons",
+                    "doc": "",
+                    "type": "string"
+                  }
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "parcelHouseKey",
+              "doc": "Below this remark follow non-cen fields  \n [This is no CEN-Field]\nIdentifiziert die Adresse, welche auf dem Paket aufgedruckt ist.\nDieser „Paket-HausKey“ kann eine Domizil Adresse, eine Postfachadresse, oder eine Pickpost Adresse sein.",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "addressPostcode6",
+              "doc": "[This is no CEN-Field]\n(DEPRECATED!)\nDie Erfassung liefert die 6-stellige Postleitzahl der auf dem Paket adressierten Adresse\nSechstellige PLZ (PLZ6), welche in der Sortierung verwendet wird.\nBesteht aus vierstelliger PLZ + zwei Stellen für dienstliche Angaben\n(AMPplus: Postleitzahl)\n\nNachfolgend erklärt an dem Beispiel: 188070 - Bex Paketfiliale\n\nGeografische Lage (erste vier Zahlen):\n1 = Leitkreis\n18 = Leitgebiet\n188 = Laufstrecke\n1880 = Bex\n\nMögliche dienstliche Angaben (letzte zwei Zahlen)\n56, 57 = Zoll, Import/Export\n60 = Briefzustellung\n61 = Postfach\n70 = Paketzustellung\n72 = Expresszustellung\n74 = Postautodienst\n75 = Kaserne",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "streetKey",
+              "doc": "[This is no CEN-Field]\nDie Erfassung liefert die Nummer der Strasse in der Adresse des Pakets. \nFür jede Strasse, bei der ein Paketbote alle oder einen Teil der Pakete zustellt, gibt es in ZUBOFI eine Strassennummer. Die Erfassung liefert diese Nummer.\nBeispiel: 206190\n\nKey of the street",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "houseNumber",
+              "doc": "[This is no CEN-Field]\nDie Erfassung liefert die Hausnummer der auf dem Paket adressierten Adresse",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "houseNumberExtension",
+              "doc": "[This is no CEN-Field]\nDie Erfassung liefert den Hausnummerzusatz der auf dem Paket adressierten Adresse (alt. houseNumberAddOn)",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "parcelAddressType",
+              "doc": "[This is no CEN-Field]\n(DEPRECATED!)\nBeschreibt den Adresstyp vom Paket. ",
+              "type": [
+                "null",
+                {
+                  "type": "enum",
+                  "name": "AddressType",
+                  "symbols": [
+                    "DOMICILE_ADDRESS",
+                    "POBOX_ADDRESS",
+                    "MILITARY_ADDRESS",
+                    "OVERSEAS_ADDRESS",
+                    "DOMICILE_CORRECTION_ADDRESS",
+                    "POBOX_CORRECTION_ADDRESS",
+                    "PAKETBASE_INTERNAL_ADDRESS",
+                    "VCS_EXPIRED_INTERNAL_ADDRESS",
+                    "MCS_REJECT_INTERNAL_ADDRESS",
+                    "DEFERRED_VCS_INTERNAL_ADDRESS",
+                    "TEST_TARGET_INTERNAL_ADDRESS"
+                  ]
+                },
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "sortCode",
+              "doc": "[This is no CEN-Field]\nProprietary Swiss Post Sort Code\n\nAll numbers:\n  __________ _____________________ ___________ _____ ________________\n| Postcode | Post Code Extension | Code Type | BBZ | SequenceNumber |\n|     4    |           2         |      1    |  3  |        4       |\n\ni.e. 17620013610850",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "specialSort",
+              "doc": "[This is no CEN-Field]\nAlternative Sort Target ",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          ]
+        }
+      ],
+      "default": null
+    }
+  ]
+}
