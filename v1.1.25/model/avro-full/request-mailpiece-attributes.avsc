@@ -1,0 +1,32 @@
+{
+  "namespace": "RequestMailpieceAttributes",
+  "name": "main",
+  "type": "record",
+  "doc": "This type provides the requester with the ability to obtain the results of an enrichment response. The RC\nreturns the document either on request of the MC or in an unsolicited fashion.\nThe MC expects to get all defined attributes for the corresponding mailpiece from the RC System.",
+  "fields": [
+    {
+      "name": "mailpieceId",
+      "doc": "Represents the national identifier for the mailpiece item.",
+      "type": "string"
+    },
+    {
+      "name": "idTag",
+      "doc": "Represents a long living identifier for the mail item",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "timestamp",
+      "doc": "[extension]\n\nTimestamp of data collection.",
+      "type": "string"
+    },
+    {
+      "name": "sourceId",
+      "doc": "Refers to a module id as event-source.  ",
+      "type": "string"
+    }
+  ]
+}
