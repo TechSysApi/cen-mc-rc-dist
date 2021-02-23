@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "type": "string",
+  "enum": [
+    "CUBIC",
+    "IRREGULAR"
+  ],
+  "id": "ShapeType",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}
