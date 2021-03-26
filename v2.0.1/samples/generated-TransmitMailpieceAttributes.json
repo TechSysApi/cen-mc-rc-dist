@@ -1,0 +1,18 @@
+{
+  "mailpieceId": "986829925140687867",
+  "timestamp": "1974-01-05T15:04:28.54Z",
+  "addressResult": {
+    "code": 61503924,
+    "rejectReasons": ["in id Excepteur", "fugiat Lorem laborum"],
+    "parcelHouseKey": -5567581381461877000,
+    "domicilHouseKey": -1470992014373073000,
+    "personAddressKey": -665116030723326000,
+    "addressPostcode6": 93353535,
+    "streetKey": -6551052,
+    "houseNumber": 93551457,
+    "houseNumberExtension": "",
+    "parcelAddressType": "POBOX_CORRECTION_ADDRESS",
+    "sortCode": "magna irure deserunt",
+    "destinationRegion": "et quis Ut"
+  }
+}

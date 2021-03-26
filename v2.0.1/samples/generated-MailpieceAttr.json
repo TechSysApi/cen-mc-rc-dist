@@ -1,0 +1,93 @@
+{
+  "type": "PARCEL",
+  "preknowledge": {
+    "multipleMailpiecdIdRecognized": false,
+    "barCodes": [{
+      "status": "DETECTED_AND_NOT_RECOGNIZED",
+      "type": "CODE_128",
+      "value": "ea in amet in Excepteur"
+    }, {
+      "status": "NO_BARCODE",
+      "type": "DATA_MATRIX",
+      "value": "culpa et voluptate officia"
+    }, {
+      "status": "DETECTED_AND_NOT_RECOGNIZED",
+      "type": "DATA_MATRIX",
+      "value": "exercitation voluptate"
+    }, {
+      "status": "NO_BARCODE",
+      "type": "DATA_MATRIX",
+      "value": "voluptate fugiat dolor Duis dolor"
+    }],
+    "location": {
+      "face": "REAR",
+      "polygon": {
+        "dot": [{
+          "x": 10051156.225218356,
+          "y": -67190033.06186058
+        }, {
+          "x": -96089683.94293447,
+          "y": 95636531.81316182
+        }, {
+          "x": -13249478.108268246,
+          "y": 69240007.17278758
+        }, {
+          "x": -26598484.766282484,
+          "y": 43753813.629992634
+        }]
+      }
+    },
+    "dimension": {
+      "length": -87931778,
+      "width": 10875300,
+      "height": 37591033,
+      "state": {
+        "measurementResult": "NOT_RECOGNIZED",
+        "measurementRange": "OUTSIDE",
+        "itemSizeClassification": {
+          "ok": false,
+          "oversized": true,
+          "undersized": false
+        }
+      }
+    },
+    "weight": {
+      "value": -32759997,
+      "state": {
+        "isLegalForTrade": false,
+        "packageDistanceError": false,
+        "packageLengthError": false,
+        "externalError": true,
+        "invalidMeasurement": false,
+        "overweight": false,
+        "underweight": false,
+        "overload": false,
+        "underload": false,
+        "conveyorSpeedChangedDuringMeasurement": false,
+        "conveyorSpeedOutOfMaxLimit": false,
+        "alibiStorageAtScaleFailed": false,
+        "scaleDataFormatError": true
+      }
+    },
+    "legalForTrade": {
+      "actualVolume": -76200761,
+      "boxVolume": 12467923,
+      "volumeRatio": -50921745,
+      "shape": "IRREGULAR",
+      "state": {
+        "conveyorSpeedError": true,
+        "storageError": true,
+        "dimensionError": true,
+        "weightError": false
+      }
+    },
+    "binOccupancy": {
+      "emptyBinOccupied": true,
+      "binMultipleItemOccupied": true,
+      "frontOverlappingLimitExceeded": false,
+      "backOverlappingLimitExceeded": false,
+      "multipleItemsDetected": false,
+      "conveyingAidDetected": false
+    }
+  }
+}

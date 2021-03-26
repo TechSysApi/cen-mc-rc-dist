@@ -1,0 +1,76 @@
+{
+  "multipleMailpiecdIdRecognized": true,
+  "barCodes": [{
+    "status": "DETECTED_AND_RECOGNIZED",
+    "type": "CODE_128",
+    "value": "veniam qui tempor ut pariatur"
+  }, {
+    "status": "DETECTED_AND_RECOGNIZED",
+    "type": "CODE_128",
+    "value": "minim"
+  }],
+  "location": {
+    "face": "RIGHT",
+    "polygon": {
+      "dot": [{
+        "x": 13602926.255144209,
+        "y": 1908165.2181471884
+      }, {
+        "x": -14144742.422245264,
+        "y": -67901700.1203745
+      }]
+    }
+  },
+  "dimension": {
+    "length": -51037208,
+    "width": -13798176,
+    "height": -32637124,
+    "state": {
+      "measurementResult": "NOT_RECOGNIZED",
+      "measurementRange": "OUTSIDE",
+      "itemSizeClassification": {
+        "ok": true,
+        "oversized": false,
+        "undersized": false
+      }
+    }
+  },
+  "weight": {
+    "value": 15939421,
+    "state": {
+      "isLegalForTrade": true,
+      "packageDistanceError": false,
+      "packageLengthError": true,
+      "externalError": false,
+      "invalidMeasurement": false,
+      "overweight": true,
+      "underweight": true,
+      "overload": true,
+      "underload": false,
+      "conveyorSpeedChangedDuringMeasurement": true,
+      "conveyorSpeedOutOfMaxLimit": true,
+      "alibiStorageAtScaleFailed": false,
+      "scaleDataFormatError": false
+    }
+  },
+  "legalForTrade": {
+    "actualVolume": -7857762,
+    "boxVolume": -42591603,
+    "volumeRatio": -2743105,
+    "shape": "IRREGULAR",
+    "state": {
+      "conveyorSpeedError": false,
+      "storageError": false,
+      "dimensionError": false,
+      "weightError": false
+    }
+  },
+  "binOccupancy": {
+    "emptyBinOccupied": true,
+    "binMultipleItemOccupied": false,
+    "frontOverlappingLimitExceeded": true,
+    "backOverlappingLimitExceeded": false,
+    "multipleItemsDetected": false,
+    "conveyingAidDetected": true
+  }
+}

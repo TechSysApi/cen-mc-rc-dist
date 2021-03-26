@@ -1,0 +1,15 @@
+{
+  "isLegalForTrade": true,
+  "packageDistanceError": true,
+  "packageLengthError": true,
+  "externalError": false,
+  "invalidMeasurement": true,
+  "overweight": true,
+  "underweight": true,
+  "overload": false,
+  "underload": false,
+  "conveyorSpeedChangedDuringMeasurement": true,
+  "conveyorSpeedOutOfMaxLimit": false,
+  "alibiStorageAtScaleFailed": true,
+  "scaleDataFormatError": false
+}

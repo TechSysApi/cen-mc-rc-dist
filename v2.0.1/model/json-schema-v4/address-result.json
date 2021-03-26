@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "Long": {
+      "type": "integer",
+      "description": "<a href=\"https://swagger.io/docs/specification/data-models/data-types/#numbers\">Number @asType integer</a> as signed 64-bit long integer.",
+      "minimum": -9223372036854775000,
+      "maximum": 9223372036854775000,
+      "format": "int64"
+    },
+    "Int": {
+      "type": "integer",
+      "description": "<a href=\"https://swagger.io/docs/specification/data-models/data-types/#numbers\">Number @asType integer</a>"
+    }
+  },
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "description": "The destination sort code is the outlet group name (Virtuelles Ziel) assigned to the mail piece.\nSpecific values are defined on a per-program basis.",
+      "maxLength": 3
+    },
+    "rejectReasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "This string element contains a reason why the RC System was unable to determine a result or has identified a special case.\nThe sorting machine needs to recognize the reject reason in order to sort the parcel to a special sortbin."
+    },
+    "parcelHouseKey": {
+      "$ref": "#/definitions/Long",
+      "description": "Below this remark follow non-cen fields  \n [This is no CEN-Field]\nIdentifiziert die Adresse, welche auf dem Paket aufgedruckt ist.\nDieser „Paket-HausKey“ kann eine Domizil Adresse, eine Postfachadresse, oder eine Pickpost Adresse sein."
+    },
+    "domicilHouseKey": {
+      "$ref": "#/definitions/Long",
+      "description": "[This is no CEN-Field]\nIdentifiziert die Domiziladresse (DHKEY) der KDPID (personAddressKey)\nKann unterschiedlich sein bei Umleitungen usw."
+    },
+    "personAddressKey": {
+      "$ref": "#/definitions/Long",
+      "description": "[This is no CEN-Field]\nIdentifiziert eine Person an einer (aktuellen) Domiziladresse eindeutig.\nÜber die History können die Wohnungswechsel der Person nachverfolgt werden.\nWenn Person mehrerer Häuser hat, kann sie auch mehrere Keys haben.\nSynonym zum AMP-Key"
+    },
+    "addressPostcode6": {
+      "$ref": "#/definitions/Int",
+      "description": "[This is no CEN-Field]\n(DEPRECATED!)\nDie Erfassung liefert die 6-stellige Postleitzahl der auf dem Paket adressierten Adresse\nSechstellige PLZ (PLZ6), welche in der Sortierung verwendet wird.\nBesteht aus vierstelliger PLZ + zwei Stellen für dienstliche Angaben\n(AMPplus: Postleitzahl)\n\nNachfolgend erklärt an dem Beispiel: 188070 - Bex Paketfiliale\n\nGeografische Lage (erste vier Zahlen):\n1 = Leitkreis\n18 = Leitgebiet\n188 = Laufstrecke\n1880 = Bex\n\nMögliche dienstliche Angaben (letzte zwei Zahlen)\n56, 57 = Zoll, Import/Export\n60 = Briefzustellung\n61 = Postfach\n70 = Paketzustellung\n72 = Expresszustellung\n74 = Postautodienst\n75 = Kaserne",
+      "maxLength": 6
+    },
+    "streetKey": {
+      "$ref": "#/definitions/Int",
+      "description": "[This is no CEN-Field]\nDie Erfassung liefert die Nummer der Strasse in der Adresse des Pakets.\nFür jede Strasse, bei der ein Paketbote alle oder einen Teil der Pakete zustellt, gibt es in ZUBOFI eine Strassennummer. Die Erfassung liefert diese Nummer.\nBeispiel: 206190\n\nKey of the street"
+    },
+    "houseNumber": {
+      "$ref": "#/definitions/Int",
+      "description": "[This is no CEN-Field]\nDie Erfassung liefert die Hausnummer der auf dem Paket adressierten Adresse"
+    },
+    "houseNumberExtension": {
+      "type": "string",
+      "description": "[This is no CEN-Field]\nDie Erfassung liefert den Hausnummerzusatz der auf dem Paket adressierten Adresse (alt. houseNumberAddOn)",
+      "maxLength": 6
+    },
+    "parcelAddressType": {
+      "$ref": "address-type.json",
+      "description": "[This is no CEN-Field]\n(DEPRECATED!)\nBeschreibt den Adresstyp vom Paket."
+    },
+    "sortCode": {
+      "type": "string",
+      "description": "[This is no CEN-Field]\nProprietary Swiss Post Sort Code\n\nAll numbers:\n  __________ _____________________ ___________ _____ ________________\n| Postcode | Post Code Extension | Code Type | BBZ | SequenceNumber |\n|     4    |           2         |      1    |  3  |        4       |\n\ni.e. 17620013610850"
+    },
+    "destinationRegion": {
+      "type": "string",
+      "description": "[This is no CEN-Field]\nDestination region of the mailpiece\nZielregion, zB. HAE1"
+    }
+  },
+  "required": [
+    "code"
+  ],
+  "additionalProperties": false,
+  "id": "AddressResult",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}
