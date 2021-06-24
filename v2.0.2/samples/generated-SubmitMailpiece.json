@@ -1,0 +1,78 @@
+{
+  "mailpieceId": "985144905783954939",
+  "timestamp": "1967-11-04T02:25:27.656Z",
+  "sourceId": "VFP12",
+  "idTag": "sunt ex consequat Excepteur eu",
+  "mpAttr": {
+    "type": "FLAT_BUNDLE",
+    "preknowledge": {
+      "multipleMailpiecdIdRecognized": true,
+      "barCodes": [{
+        "status": "DETECTED_AND_RECOGNIZED",
+        "type": "CODE_128",
+        "value": "reprehenderit veniam laborum"
+      }],
+      "location": {
+        "face": "TOP",
+        "polygon": {
+          "dot": [{
+            "x": 10899484.643620744,
+            "y": -19604632.76309356
+          }]
+        }
+      },
+      "dimension": {
+        "length": -82604266,
+        "width": 91567190,
+        "height": -25320614,
+        "state": {
+          "measurementResult": "NOK",
+          "measurementRange": "OUTSIDE",
+          "itemSizeClassification": {
+            "ok": true,
+            "oversized": true,
+            "undersized": true
+          }
+        }
+      },
+      "weight": {
+        "value": 40922027,
+        "state": {
+          "isLegalForTrade": false,
+          "packageDistanceError": false,
+          "packageLengthError": true,
+          "externalError": false,
+          "invalidMeasurement": true,
+          "overweight": false,
+          "underweight": true,
+          "overload": false,
+          "underload": true,
+          "conveyorSpeedChangedDuringMeasurement": false,
+          "conveyorSpeedOutOfMaxLimit": true,
+          "alibiStorageAtScaleFailed": true,
+          "scaleDataFormatError": false
+        }
+      },
+      "legalForTrade": {
+        "actualVolume": -97823830,
+        "boxVolume": -9564511,
+        "volumeRatio": 88660848,
+        "shape": "IRREGULAR",
+        "state": {
+          "conveyorSpeedError": true,
+          "storageError": true,
+          "dimensionError": true,
+          "weightError": false
+        }
+      },
+      "binOccupancy": {
+        "emptyBinOccupied": true,
+        "binMultipleItemOccupied": true,
+        "frontOverlappingLimitExceeded": true,
+        "backOverlappingLimitExceeded": true,
+        "multipleItemsDetected": true,
+        "conveyingAidDetected": true
+      }
+    }
+  }
+}
