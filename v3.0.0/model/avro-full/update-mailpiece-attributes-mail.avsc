@@ -1,0 +1,140 @@
+{
+  "namespace": "UpdateMailpieceAttributesMail",
+  "name": "main",
+  "type": "record",
+  "doc": "The notification about the sortation of the mail piece. This event triggers the mail piece sorting Event in BDE. and # GER-TODO\n\nDer Dienst ermöglicht der MC, aktualisierte oder zusätzliche Informationen in Bezug auf eine Postsendung zu übertragen,\ndie dem RC- System bereits vorgelegt worden ist. Solange sich die Postsendung zur Verarbeitung in der Maschine befindet, kann dieser\nDienst von der MC mehrfach ausgeführt werden.\nFür einen Sortierablauf ohne das Einscannen von Bildern (z.B.stationäre Bearbeitung im Zielfrachtzentrum oder Sortierung in der\nReihenfolge der Zustellung) kann mit diesem Dienst die Behälternummer zur Verfügung gestellt werden, in den die\nPostsendung physikalisch einsortiert wird; für diesen Fall muss kein submitMailpiece ausgeführt werden.",
+  "fields": [
+    {
+      "name": "sortplanId",
+      "doc": "The ID if the sortplan used for sorting",
+      "type": "string"
+    },
+    {
+      "name": "sortplanName",
+      "doc": "The name of the sortplan used for sorting",
+      "type": "string"
+    },
+    {
+      "name": "sortingProductId",
+      "doc": "The id of the sorting product that the item was sorted to",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "sortingProductVap",
+      "doc": "The target VAP (\"Verarbeitungsprodukt\") the item was sorted to.",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "sortingProductBcType",
+      "doc": "The type of the label barcode concerning the outlet the mailpiece was sorted to.",
+      "type": "string"
+    },
+    {
+      "name": "mailpieceId",
+      "doc": "The mailpieceId represents the machine specific identifier to track a mail item during a machine sorting cycle. The identifier is used to synchronize the data events between coding and sorting systems.",
+      "type": "string"
+    },
+    {
+      "name": "idTag",
+      "doc": "Represents a long living identifier for the mail item\n[DEPRECATED] Is replaced by the attribute idTags. Attribute will be removed in future releases when all target systems use the new field idTags.",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "timestamp",
+      "doc": "Timestamp of data collection.",
+      "type": "string"
+    },
+    {
+      "name": "sourceId",
+      "doc": "Refers to a module id as event-source.",
+      "type": "string"
+    },
+    {
+      "name": "weight",
+      "doc": "Weight of the mail piece in [g].",
+      "default": null,
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "sortBin",
+      "doc": "The name of the outlet to which the machine physically sorted the mail piece.\nThe outlet name is a 4 digit number.",
+      "type": "int"
+    },
+    {
+      "name": "code",
+      "doc": "The destination sort code is the outlet group name (Virtuelles Ziel) assigned to the mail piece.\nSpecific values are defined on a per-program basis.",
+      "default": null,
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "finalCoded",
+      "doc": "A boolean value indicating whether or not processing for a mail piece is complete.\n\n- false: mail piece was discharged\n- true: Discharging was verified",
+      "type": "boolean"
+    },
+    {
+      "name": "sortReason",
+      "doc": "Defines the machine specific sort reasons.\nList of values:\n- UNKNOWN: Default enum value to map not supported values.\n- OK: Discharge OK. This describes just a \"regular\" item\n- MAX_RECIRCULATION: Item has reached the max allowed amount of recirculations.\n- ITEM_NO_READ: [DEPCRECATED] Item has reached the max allowed amount of scans and the last attempt was a no read.\n- ITEM_MULTIPLE_READ: [DEPCRECATED] Multiple national or international id barcodes could be identified.\n- SCANNER_TIMEOUT: Item has reached the max allowed amount of scans and the last attempt was a \"no answer\" from scanner.\n- ITEM_STRAY: Stray item detected.\n- ITEM_INDUCTION_ERROR: Induction error item detected (occupied twice, wrong tray).\n- ITEM_DISCHARGE_ERROR: Discharge faults.\n- ITEM_ERROR: Item has a Logical error.\n- ITEM_TRACKING_ERROR: item was inducted with tracking fault.\n- ITEM_OCCUPIED_TWICE_ERROR: item was inducted on occupied tray.\n- ITEM_DISAPPEARED: The parcel was lost at unknown location.\n- OUTLET_NOT_AVAILABLE: No available chute could be found.\n- OUTLET_UNKNOWN: Logical destination not defined.\n- UNDEFINED_ERROR: Internal error happened.\n- NO_CAPACITY: The destination outlet has no more capacity.\n- DIMENSION_ERROR: Item oversize. The parcel was discharge, because of dimension exceed.\n- WEIGHT_ERROR: Item too heavy. The parcel was discharge, because of weight exceed.\n- SORTPLAN_ERROR: Sortplan error.\n- DIRECT_SORTING_MODE: Item sorted by the direct sorting mode.\n- ITEM_NO_SORTCODE: No sortcode has been received for this item.\n- OUTLET_MISSED: Sortcode has been updated (push or repetitive requests), physical outlet already passed.",
+      "type": [
+        "null",
+        {
+          "type": "enum",
+          "name": "sortReason_enum",
+          "symbols": [
+            "UNKNOWN",
+            "OK",
+            "MAX_RECIRCULATION",
+            "ITEM_NO_READ",
+            "ITEM_MULTIPLE_READ",
+            "SCANNER_TIMEOUT",
+            "ITEM_STRAY",
+            "ITEM_INDUCTION_ERROR",
+            "ITEM_DISCHARGE_ERROR",
+            "ITEM_ERROR",
+            "ITEM_TRACKING_ERROR",
+            "ITEM_OCCUPIED_TWICE_ERROR",
+            "ITEM_DISAPPEARED",
+            "OUTLET_NOT_AVAILABLE",
+            "OUTLET_UNKNOWN",
+            "UNDEFINED_ERROR",
+            "NO_CAPACITY",
+            "DIMENSION_ERROR",
+            "WEIGHT_ERROR",
+            "SORTPLAN_ERROR",
+            "DIRECT_SORTING_MODE",
+            "ITEM_NO_SORTCODE",
+            "OUTLET_MISSED"
+          ]
+        },
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "recirculations",
+      "doc": "The number of recirculations of the mail item on the sorter.",
+      "default": null,
+      "type": [
+        "null",
+        "int"
+      ]
+    }
+  ]
+}

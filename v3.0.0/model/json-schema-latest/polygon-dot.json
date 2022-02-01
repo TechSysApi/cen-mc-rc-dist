@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "definitions": {},
+  "type": "object",
+  "properties": {
+    "x": {
+      "type": "number",
+      "required": true
+    },
+    "y": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "required": [
+    "x",
+    "y"
+  ],
+  "additionalProperties": false,
+  "$id": "PolygonDot",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}

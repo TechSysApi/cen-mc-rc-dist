@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "definitions": {},
+  "type": "string",
+  "enum": [
+    "NOT_RECOGNIZED",
+    "CODE_128",
+    "DATA_MATRIX",
+    "CODE_39",
+    "I2OF5",
+    "QR"
+  ],
+  "description": "Provides the valid symbologies of a barcode label",
+  "id": "BarCodeSymbology",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}

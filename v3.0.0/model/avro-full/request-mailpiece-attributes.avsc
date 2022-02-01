@@ -1,0 +1,32 @@
+{
+  "namespace": "RequestMailpieceAttributes",
+  "name": "main",
+  "type": "record",
+  "doc": "This type provides the requester with the ability to obtain the results of an enrichment response. The RC\nreturns the document either on request of the MC or in an unsolicited fashion.\nThe MC expects to get all defined attributes for the corresponding mailpiece from the RC System.",
+  "fields": [
+    {
+      "name": "mailpieceId",
+      "doc": "The mailpieceId represents the machine specific identifier to track a mail item during a machine sorting cycle. The identifier is used to synchronize the data events between coding and sorting systems.",
+      "type": "string"
+    },
+    {
+      "name": "idTag",
+      "doc": "Represents a long living identifier for the mail item\n[DEPRECATED] Is replaced by the attribute idTags. Attribute will be removed in future releases when all target systems use the new field idTags.",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "timestamp",
+      "doc": "Timestamp of data collection.",
+      "type": "string"
+    },
+    {
+      "name": "sourceId",
+      "doc": "Refers to a module id as event-source.",
+      "type": "string"
+    }
+  ]
+}

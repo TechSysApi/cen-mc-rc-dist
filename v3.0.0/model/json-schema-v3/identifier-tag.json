@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "definitions": {},
+  "type": "object",
+  "properties": {
+    "format": {
+      "$ref": "identifier-tag-format.json",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "description": "Contains the value of the identifier tag.",
+      "maxLength": 200,
+      "required": true
+    }
+  },
+  "additionalProperties": false,
+  "description": "The tag contains a logistic or technical identifier to track a mail item within a specific context.",
+  "id": "IdentifierTag",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}

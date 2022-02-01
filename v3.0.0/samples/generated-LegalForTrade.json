@@ -1,0 +1,12 @@
+{
+  "actualVolume": 47517824,
+  "boxVolume": 15151908,
+  "volumeRatio": -70882099,
+  "shape": "CUBIC",
+  "state": {
+    "conveyorSpeedError": true,
+    "storageError": true,
+    "dimensionError": false,
+    "weightError": false
+  }
+}

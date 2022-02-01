@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "definitions": {},
+  "type": "string",
+  "enum": [
+    "NO_BARCODE",
+    "DETECTED_AND_RECOGNIZED",
+    "DETECTED_AND_NOT_RECOGNIZED"
+  ],
+  "description": "The result status of the barcode recognition.\r\nDETECTED_AND_RECOGNIZED if the barCode symbology is recognized.\r\nDETECTED_AND_NOT_RECOGNIZED if the barCode symbology is not recognized.",
+  "id": "BarCodeStatus",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}

@@ -1,0 +1,147 @@
+{
+  "namespace": "TransmitMailpieceAttributesMail",
+  "name": "main",
+  "type": "record",
+  "doc": "This type contains the coding result for a mail piece that has been determined by CS (ORCA).",
+  "fields": [
+    {
+      "name": "mailpieceId",
+      "doc": "The mailpieceId represents the machine specific identifier to track a mail item during a machine sorting cycle. The identifier is used to synchronize the data events between coding and sorting systems.",
+      "type": "string"
+    },
+    {
+      "name": "idTags",
+      "doc": "An array of idTags. The list can be null or empty if no identification tag was found.",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": {
+            "type": "record",
+            "name": "IdentifierTag",
+            "doc": "The tag contains a logistic or technical identifier to track a mail item within a specific context.",
+            "fields": [
+              {
+                "name": "format",
+                "doc": "Defines the format of the identifier tag\nNATIONAL_SHIPMENT_NUMBER = A national identifier to track a mail item within the country. (98|99)[0-9]{16}\nGLOBAL_SHIPMENT_NUMBER = A national identifier to track a mail item internationally. [A-Z]{2}[0-9]{9}[A-Z]{2}\nLETTER_ID = A national identifier to track a letter item within the country. Typ LetterID 31, 21 oder 20, starting with «75680».\nCUSTOMS_NUMBER = A national identifier to track an imported mail item within the country.\nBOX_ID = An identifier to track a Dispobox within the country.\nUPU_ID = A technical identifier to track an mail item during the complete sorting process.\nUMI = A machine independent technical identifier to reference a machine sorting cycle of a mail item. The identifier is used to access the mail images.",
+                "type": [
+                  {
+                    "type": "enum",
+                    "name": "format_enum",
+                    "symbols": [
+                      "NATIONAL_SHIPMENT_NUMBER",
+                      "GLOBAL_SHIPMENT_NUMBER",
+                      "LETTER_ID",
+                      "CUSTOMS_NUMBER",
+                      "BOX_ID",
+                      "UPU_ID",
+                      "UMI"
+                    ]
+                  },
+                  "string"
+                ]
+              },
+              {
+                "name": "value",
+                "doc": "Contains the value of the identifier tag.",
+                "type": "string"
+              }
+            ]
+          }
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "timestamp",
+      "doc": "Timestamp of data collection.",
+      "type": "string"
+    },
+    {
+      "name": "addressResult",
+      "doc": "",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "AddressResultMail",
+          "fields": [
+            {
+              "name": "sortCode",
+              "doc": "[This is no CEN-Field]\nProprietary Swiss Post Sort Code\n\nAll numbers:\n  __________ _____________________ ___________ _____ ________________\n| Postcode | Post Code Extension | Code Type | BBZ | SequenceNumber |\n|     4    |           2         |      1    |  3  |        4       |\n\ni.e. 17620013610850",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "rejectReason",
+              "doc": "If present, this element states that the mail piece cannot be sorted based on a distribution code.\nDepending on the concrete reject reason, the mail piece may be processed again at a Manual Work Station in the mode ‘Reject’.\nIn case of early detection of NSA (change of address) or NIXIE (mail piece is not deliverable to the recognized address/customer),\nthe reject reasons ‘early_detection_nsa resp. ‘early_detection_nixie’ are set in order to indicate\nthat the mail piece shall be sorted out for being processed at a Manual Work Station in the mode ‘Rework (Nachbearbeitung)’.",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "finalCoded",
+              "doc": "Boolean flag that states whether the CS may subsequently provide further coding results or not",
+              "default": null,
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "name": "businessReplyMailType",
+              "doc": "If the mail piece is a business reply mail, this element contains the type of business reply mail.\nUsed to recognize a special sort by matching the value with Machine Event Line column RCMI_BRM",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "registeredMailType",
+              "doc": "If the mail piece is a registered mail, this element contains the type of registered mail.\nUsed to recognize a special sort by matching the value with Machine Event Line column RCMI_REGISTERED_TYPE",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "expressMailType",
+              "doc": "If the mail piece is an express mail, this element contains the express type.\nUsed to recognize a special sort by matching the value with Machine Event Line column RCMI_EXPRESS_TYPE",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "mailService",
+              "doc": "Name of the mail attribute category.\nUsed to determine the mailAttribute element. The mailAttribute is used in combination of the sortcode to find the sorting product\nIf value = «not_for_sequencing» the mailAttribute «attribute» is used in addition to the sortcode to find the destination in the sortplan.\nThe name «attribute» is a convention between the sorting system and the sort planning tool.",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "revenueProtectionViolation",
+              "doc": "Marks a detected violation of Revenue Protection rules.\nUsed to recognize a special sort by matching the value with Machine Event Line column RCMI_RP_VIOLATION\nCurrently used values: Suspect, Unknown_Device, Unknown_Invoice_Ref, Stolen, Unknown_Product, Duplicate, Authenticity, PCs_inconsistent, Non_Read, Unknown_Code, Non_Franked, Franking_Expired",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          ]
+        }
+      ],
+      "default": null
+    }
+  ]
+}

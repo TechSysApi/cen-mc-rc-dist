@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "definitions": {},
+  "type": "object",
+  "properties": {
+    "isLegalForTrade": {
+      "type": "boolean",
+      "description": "False: Weight is not legal for trade.",
+      "required": true
+    },
+    "packageDistanceError": {
+      "type": "boolean"
+    },
+    "packageLengthError": {
+      "type": "boolean"
+    },
+    "externalError": {
+      "type": "boolean"
+    },
+    "invalidMeasurement": {
+      "type": "boolean"
+    },
+    "overweight": {
+      "type": "boolean",
+      "description": "Weight higher than max. weight."
+    },
+    "underweight": {
+      "type": "boolean",
+      "description": "Weight lower than min weight."
+    },
+    "overload": {
+      "type": "boolean"
+    },
+    "underload": {
+      "type": "boolean"
+    },
+    "conveyorSpeedChangedDuringMeasurement": {
+      "type": "boolean"
+    },
+    "conveyorSpeedOutOfMaxLimit": {
+      "type": "boolean"
+    },
+    "alibiStorageAtScaleFailed": {
+      "type": "boolean"
+    },
+    "scaleDataFormatError": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false,
+  "id": "WeightMeasurementState",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}
