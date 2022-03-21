@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "definitions": {},
+  "id": "SubmitMailpiecePAR",
+  "type": "object",
+  "properties": {
+    "imageKey": {
+      "type": "string",
+      "description": "Key assigned to an image (PicId)",
+      "maxLength": 200
+    }
+  },
+  "additionalProperties": false,
+  "description": "",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1",
+  "extends": {
+    "$ref": "submit-mailpiece.json"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer",
+      "description": "Actual weight in [g].",
+      "maxLength": 6
+    },
+    "scaleId": {
+      "type": "string",
+      "description": "The id of the scale (e.g. HAE-024)"
+    },
+    "state": {
+      "$ref": "weight-measurement-state.json",
+      "description": "Weighing errors"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Weight measurement of the mail piece.",
+  "id": "Weight",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}

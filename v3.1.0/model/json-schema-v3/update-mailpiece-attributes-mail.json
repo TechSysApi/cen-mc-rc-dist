@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "definitions": {},
+  "description": "The notification about the sortation of the mail piece. This event triggers the mail piece sorting Event in BDE. and # GER-TODO\n\nDer Dienst ermöglicht der MC, aktualisierte oder zusätzliche Informationen in Bezug auf eine Postsendung zu übertragen,\ndie dem RC- System bereits vorgelegt worden ist. Solange sich die Postsendung zur Verarbeitung in der Maschine befindet, kann dieser\nDienst von der MC mehrfach ausgeführt werden.\nFür einen Sortierablauf ohne das Einscannen von Bildern (z.B.stationäre Bearbeitung im Zielfrachtzentrum oder Sortierung in der\nReihenfolge der Zustellung) kann mit diesem Dienst die Behälternummer zur Verfügung gestellt werden, in den die\nPostsendung physikalisch einsortiert wird; für diesen Fall muss kein submitMailpiece ausgeführt werden.",
+  "id": "UpdateMailpieceAttributesMail",
+  "type": "object",
+  "properties": {
+    "sortplanId": {
+      "type": "string",
+      "description": "The ID if the sortplan used for sorting",
+      "maxLength": 200,
+      "required": true
+    },
+    "sortplanName": {
+      "type": "string",
+      "description": "The name of the sortplan used for sorting",
+      "maxLength": 200,
+      "required": true
+    },
+    "sortingProductId": {
+      "type": "string",
+      "description": "The id of the sorting product that the item was sorted to",
+      "maxLength": 200
+    },
+    "sortingProductVap": {
+      "type": "string",
+      "description": "The target VAP (\"Verarbeitungsprodukt\") the item was sorted to.",
+      "maxLength": 32
+    },
+    "sortingProductBcType": {
+      "type": "string",
+      "description": "The type of the label barcode concerning the outlet the mailpiece was sorted to.",
+      "maxLength": 2,
+      "required": true
+    }
+  },
+  "additionalProperties": false,
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1",
+  "extends": {
+    "$ref": "update-mailpiece-attributes.json"
+  }
+}

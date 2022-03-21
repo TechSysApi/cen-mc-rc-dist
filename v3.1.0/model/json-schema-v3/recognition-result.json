@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "definitions": {},
+  "type": "object",
+  "properties": {
+    "multipleMailpiecdIdRecognized": {
+      "type": "boolean",
+      "description": "[DEPRECATED] Attribute will be removed in future releases after WESort is rolled out in all sorting centers.\r\nIf true, multiple identcodes were recognized by the camera."
+    },
+    "informationCarriers": {
+      "type": "array",
+      "items": {
+        "$ref": "information-carrier.json"
+      },
+      "description": "Contains the data from the information carrier identified by the reading system.\r\nThe reading system should read and send all available barcodes/matrix codes. The consuming systems will apply further classification and filtering."
+    },
+    "barCodes": {
+      "type": "array",
+      "items": {
+        "$ref": "bar-code.json"
+      },
+      "description": "[DEPRECATED] Is replaced by the attribute informationCarriers. Attribute will be removed in future releases after WESort is rolled out in all sorting centers.\r\nContains all barcodes/matrix codes identified by the reading system.\r\nThe reading system should read and send all available barcodes/matrix codes. The consuming systems will apply further classification and filtering."
+    },
+    "location": {
+      "$ref": "location.json"
+    },
+    "dimension": {
+      "$ref": "dimension.json",
+      "description": "dimension of the mail piece."
+    },
+    "weight": {
+      "$ref": "weight.json",
+      "description": "weight of the mail piece."
+    },
+    "legalForTrade": {
+      "$ref": "legal-for-trade.json",
+      "description": "Legal For Trade information."
+    },
+    "binOccupancy": {
+      "$ref": "bin-occupancy-state.json"
+    }
+  },
+  "additionalProperties": false,
+  "id": "RecognitionResult",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}

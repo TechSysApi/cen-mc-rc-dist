@@ -1,0 +1,18 @@
+{
+  "value": -52937342,
+  "state": {
+    "isLegalForTrade": false,
+    "packageDistanceError": false,
+    "packageLengthError": true,
+    "externalError": true,
+    "invalidMeasurement": false,
+    "overweight": false,
+    "underweight": true,
+    "overload": true,
+    "underload": false,
+    "conveyorSpeedChangedDuringMeasurement": false,
+    "conveyorSpeedOutOfMaxLimit": true,
+    "alibiStorageAtScaleFailed": false,
+    "scaleDataFormatError": true
+  }
+}
