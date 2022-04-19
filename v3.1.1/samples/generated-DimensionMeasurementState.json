@@ -1,0 +1,9 @@
+{
+  "measurementResult": "NOT_RECOGNIZED",
+  "measurementRange": "OUTSIDE",
+  "itemSizeClassification": {
+    "ok": false,
+    "oversized": true,
+    "undersized": false
+  }
+}

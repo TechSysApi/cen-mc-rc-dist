@@ -1,0 +1,291 @@
+{
+  "namespace": "TransmitMailpieceAttributesMail",
+  "name": "main",
+  "type": "record",
+  "doc": "This type contains the coding result for a mail piece that has been determined by CS (ORCA).",
+  "fields": [
+    {
+      "name": "locationKey",
+      "doc": "[ACTION] Attribute is required in future releases after WESort is rolled out in all sorting centers.\nUnique identifier of the sorting center (ONRP).",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "sortingProcess",
+      "doc": "[ACTION] Attribute is required in future releases after WESort is rolled out in all sorting centers.\nDefines the sorting process.",
+      "type": [
+        "null",
+        {
+          "type": "enum",
+          "name": "sortingProcess_enum",
+          "symbols": [
+            "AUTOMATIC",
+            "MANUAL_CODING_REJECT",
+            "MANUAL_CODING_LIGHT",
+            "MANUAL_CODING_BULK",
+            "MANUAL_CODING_BULK_AUTOMATIC"
+          ]
+        },
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "processingItemId",
+      "doc": "[ACTION] Attribute is required in future releases after WESort is rolled out in all sorting centers.\nThe machine specific identifier to track a mail item during a machine sorting cycle. The identifier is used to synchronize the data events between coding and sorting systems.",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "mailpieceId",
+      "doc": "[DEPRECATED] Is replaced by the attribute processingItemId. Attribute will be removed in future releases after WESort is rolled out in all sorting centers.\nThe machine specific identifier to track a mail item during a machine sorting cycle. The identifier is used to synchronize the data events between coding and sorting systems.",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "idTags",
+      "doc": "Contains a list of ids identifying the processing item.",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "IdentifierTags",
+          "fields": [
+            {
+              "name": "nationalMailpieceIds",
+              "doc": "Contains the list of national identifiers to track a mail item within the country.\nThe id is printed on the mailpiece by the sender.",
+              "type": [
+                "null",
+                {
+                  "type": "array",
+                  "items": {
+                    "name": "nationalMailpieceIds",
+                    "doc": "",
+                    "type": "string"
+                  }
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "internationalMailpieceIds",
+              "doc": "Contains the list of national identifiers to track a mail item internationally.\nThe id is printed on the mailpiece by the sender.",
+              "type": [
+                "null",
+                {
+                  "type": "array",
+                  "items": {
+                    "name": "internationalMailpieceIds",
+                    "doc": "",
+                    "type": "string"
+                  }
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "nationalLetterIds",
+              "doc": "Contains the list of national identifiers to track a letter item within the country.\nThe id can only be created once during a machine sorting cycle and printed on the letter.",
+              "type": [
+                "null",
+                {
+                  "type": "array",
+                  "items": {
+                    "name": "nationalLetterIds",
+                    "doc": "",
+                    "type": "string"
+                  }
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "internationalLetterIds",
+              "doc": "Contains the list of Universal Postal Union Identifier (UPU-Id) as technical identifiers to track an letter item internationally.\nThe id can only be created once during a machine sorting cycle and printed on the letter.\nRemarks: BDE converts the UPU-Id into a shorter version",
+              "type": [
+                "null",
+                {
+                  "type": "array",
+                  "items": {
+                    "name": "internationalLetterIds",
+                    "doc": "",
+                    "type": "string"
+                  }
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "customerLetterIds",
+              "doc": "Contains the list of national identifiers from the customer to track a letter item within the country.",
+              "type": [
+                "null",
+                {
+                  "type": "array",
+                  "items": {
+                    "name": "customerLetterIds",
+                    "doc": "",
+                    "type": "string"
+                  }
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "customsNumbers",
+              "doc": "Contains the list of national identifiers from the customs to track an imported mail item within the country.",
+              "type": [
+                "null",
+                {
+                  "type": "array",
+                  "items": {
+                    "name": "customsNumbers",
+                    "doc": "",
+                    "type": "string"
+                  }
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "boxIds",
+              "doc": "Contains the list of identifiers to track a Dispobox within the country.",
+              "type": [
+                "null",
+                {
+                  "type": "array",
+                  "items": {
+                    "name": "boxIds",
+                    "doc": "",
+                    "type": "string"
+                  }
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "sortingProcessId",
+              "doc": "The technical identifier to track an mail item during the complete sorting process. UPU-Id is set as default.",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "sortingProcessStepId",
+              "doc": "Contains the Unique Mailpiece-Image Identifier (UMI) as machine independent technical identifier to reference a machine sorting cycle of a mail item. The identifier is used to access the mail images.\nThe id is created during every machine sorting cycle.",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          ],
+          "doc": "Contains a list of logistic or technical identifiers to track a mail item within a specific context."
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "timestamp",
+      "doc": "Timestamp of data collection.",
+      "type": "string"
+    },
+    {
+      "name": "addressResult",
+      "doc": "",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "AddressResultMail",
+          "fields": [
+            {
+              "name": "sortCode",
+              "doc": "[This is no CEN-Field]\nProprietary Swiss Post Sort Code\n\nAll numbers:\n  __________ _____________________ ___________ _____ ________________\n| Postcode | Post Code Extension | Code Type | BBZ | SequenceNumber |\n|     4    |           2         |      1    |  3  |        4       |\n\ni.e. 17620013610850",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "rejectReason",
+              "doc": "If present, this element states that the mail piece cannot be sorted based on a distribution code.\nDepending on the concrete reject reason, the mail piece may be processed again at a Manual Work Station in the mode ‘Reject’.\nIn case of early detection of NSA (change of address) or NIXIE (mail piece is not deliverable to the recognized address/customer),\nthe reject reasons ‘early_detection_nsa resp. ‘early_detection_nixie’ are set in order to indicate\nthat the mail piece shall be sorted out for being processed at a Manual Work Station in the mode ‘Rework (Nachbearbeitung)’.",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "finalCoded",
+              "doc": "Boolean flag that states whether the CS may subsequently provide further coding results or not",
+              "default": null,
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            {
+              "name": "businessReplyMailType",
+              "doc": "If the mail piece is a business reply mail, this element contains the type of business reply mail.\nUsed to recognize a special sort by matching the value with Machine Event Line column RCMI_BRM",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "registeredMailType",
+              "doc": "If the mail piece is a registered mail, this element contains the type of registered mail.\nUsed to recognize a special sort by matching the value with Machine Event Line column RCMI_REGISTERED_TYPE",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "expressMailType",
+              "doc": "If the mail piece is an express mail, this element contains the express type.\nUsed to recognize a special sort by matching the value with Machine Event Line column RCMI_EXPRESS_TYPE",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "mailService",
+              "doc": "Name of the mail attribute category.\nUsed to determine the mailAttribute element. The mailAttribute is used in combination of the sortcode to find the sorting product\nIf value = «not_for_sequencing» the mailAttribute «attribute» is used in addition to the sortcode to find the destination in the sortplan.\nThe name «attribute» is a convention between the sorting system and the sort planning tool.",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "revenueProtectionViolation",
+              "doc": "Marks a detected violation of Revenue Protection rules.\nUsed to recognize a special sort by matching the value with Machine Event Line column RCMI_RP_VIOLATION\nCurrently used values: Suspect, Unknown_Device, Unknown_Invoice_Ref, Stolen, Unknown_Product, Duplicate, Authenticity, PCs_inconsistent, Non_Read, Unknown_Code, Non_Franked, Franking_Expired",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          ]
+        }
+      ],
+      "default": null
+    }
+  ]
+}

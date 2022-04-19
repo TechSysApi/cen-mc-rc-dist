@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "definitions": {},
+  "type": "object",
+  "properties": {
+    "dot": {
+      "type": "array",
+      "items": {
+        "$ref": "polygon-dot.json"
+      },
+      "required": true
+    }
+  },
+  "additionalProperties": false,
+  "id": "Polygon",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}

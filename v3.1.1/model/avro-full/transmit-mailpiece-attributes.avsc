@@ -1,0 +1,362 @@
+{
+  "namespace": "TransmitMailpieceAttributes",
+  "name": "main",
+  "type": "record",
+  "doc": "This type contains the result for a mail piece that has been determined by the RC System.",
+  "fields": [
+    {
+      "name": "locationKey",
+      "doc": "[ACTION] Attribute is required in future releases after WESort is rolled out in all sorting centers.\nUnique identifier of the sorting center (ONRP).",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "sortingProcess",
+      "doc": "[ACTION] Attribute is required in future releases after WESort is rolled out in all sorting centers.\nDefines the sorting process.",
+      "type": [
+        "null",
+        {
+          "type": "enum",
+          "name": "sortingProcess_enum",
+          "symbols": [
+            "AUTOMATIC",
+            "MANUAL_CODING_REJECT",
+            "MANUAL_CODING_LIGHT",
+            "MANUAL_CODING_BULK",
+            "MANUAL_CODING_BULK_AUTOMATIC"
+          ]
+        },
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "processingItemId",
+      "doc": "[ACTION] Attribute is required in future releases after WESort is rolled out in all sorting centers.\nThe machine specific identifier to track a mail item during a machine sorting cycle. The identifier is used to synchronize the data events between coding and sorting systems.",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "mailpieceId",
+      "doc": "[DEPRECATED] Is replaced by the attribute processingItemId. Attribute will be removed in future releases after WESort is rolled out in all sorting centers.\nThe machine specific identifier to track a mail item during a machine sorting cycle. The identifier is used to synchronize the data events between coding and sorting systems.",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "timestamp",
+      "doc": "Timestamp of data collection.",
+      "type": "string"
+    },
+    {
+      "name": "addressResult",
+      "doc": "",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "AddressResult",
+          "fields": [
+            {
+              "name": "code",
+              "doc": "The destination sort code is the outlet group name (Virtuelles Ziel) assigned to the mail piece.\nSpecific values are defined on a per-program basis.",
+              "type": "int"
+            },
+            {
+              "name": "rejectReasons",
+              "doc": "This string element contains a reason why the RC System was unable to determine a result or has identified a special case.\nThe sorting machine needs to recognize the reject reason in order to sort the parcel to a special sortbin.",
+              "type": [
+                "null",
+                {
+                  "type": "array",
+                  "items": {
+                    "name": "rejectReasons",
+                    "doc": "",
+                    "type": "string"
+                  }
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "parcelHouseKey",
+              "doc": "Below this remark follow non-cen fields  \n [This is no CEN-Field]\nIdentifiziert die Adresse, welche auf dem Paket aufgedruckt ist.\nDieser „Paket-HausKey“ kann eine Domizil Adresse, eine Postfachadresse, oder eine Pickpost Adresse sein.",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "domicilHouseKey",
+              "doc": "[This is no CEN-Field]\nIdentifiziert die Domiziladresse (DHKEY) der KDPID (personAddressKey)\nKann unterschiedlich sein bei Umleitungen usw.",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "personAddressKey",
+              "doc": "[This is no CEN-Field]\nIdentifiziert eine Person an einer (aktuellen) Domiziladresse eindeutig.\nÜber die History können die Wohnungswechsel der Person nachverfolgt werden.\nWenn Person mehrerer Häuser hat, kann sie auch mehrere Keys haben.\nSynonym zum AMP-Key",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "addressPostcode6",
+              "doc": "[This is no CEN-Field]\n(DEPRECATED!)\nDie Erfassung liefert die 6-stellige Postleitzahl der auf dem Paket adressierten Adresse\nSechstellige PLZ (PLZ6), welche in der Sortierung verwendet wird.\nBesteht aus vierstelliger PLZ + zwei Stellen für dienstliche Angaben\n(AMPplus: Postleitzahl)\n\nNachfolgend erklärt an dem Beispiel: 188070 - Bex Paketfiliale\n\nGeografische Lage (erste vier Zahlen):\n1 = Leitkreis\n18 = Leitgebiet\n188 = Laufstrecke\n1880 = Bex\n\nMögliche dienstliche Angaben (letzte zwei Zahlen)\n56, 57 = Zoll, Import/Export\n60 = Briefzustellung\n61 = Postfach\n70 = Paketzustellung\n72 = Expresszustellung\n74 = Postautodienst\n75 = Kaserne",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "streetKey",
+              "doc": "[This is no CEN-Field]\nDie Erfassung liefert die Nummer der Strasse in der Adresse des Pakets.\nFür jede Strasse, bei der ein Paketbote alle oder einen Teil der Pakete zustellt, gibt es in ZUBOFI eine Strassennummer. Die Erfassung liefert diese Nummer.\nBeispiel: 206190\n\nKey of the street",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "houseNumber",
+              "doc": "[This is no CEN-Field]\nDie Erfassung liefert die Hausnummer der auf dem Paket adressierten Adresse",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "houseNumberExtension",
+              "doc": "[This is no CEN-Field]\nDie Erfassung liefert den Hausnummerzusatz der auf dem Paket adressierten Adresse (alt. houseNumberAddOn)",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "parcelAddressType",
+              "doc": "[This is no CEN-Field]\n(DEPRECATED!)\nBeschreibt den Adresstyp vom Paket.",
+              "type": [
+                "null",
+                {
+                  "type": "enum",
+                  "name": "parcelAddressType_enum",
+                  "symbols": [
+                    "DOMICILE_ADDRESS",
+                    "POBOX_ADDRESS",
+                    "MILITARY_ADDRESS",
+                    "OVERSEAS_ADDRESS",
+                    "DOMICILE_CORRECTION_ADDRESS",
+                    "POBOX_CORRECTION_ADDRESS",
+                    "PAKETBASE_INTERNAL_ADDRESS",
+                    "VCS_EXPIRED_INTERNAL_ADDRESS",
+                    "MCS_REJECT_INTERNAL_ADDRESS",
+                    "DEFERRED_VCS_INTERNAL_ADDRESS",
+                    "TEST_TARGET_INTERNAL_ADDRESS"
+                  ]
+                },
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "destinationRegion",
+              "doc": "[This is no CEN-Field]\nDestination region of the mailpiece\nZielregion, zB. HAE1",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "sortCode",
+              "doc": "[This is no CEN-Field]\nProprietary Swiss Post Sort Code\n\nAll numbers:\n  __________ _____________________ ___________ _____ ________________\n| Postcode | Post Code Extension | Code Type | BBZ | SequenceNumber |\n|     4    |           2         |      1    |  3  |        4       |\n\ni.e. 17620013610850",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "weight",
+      "doc": "[DEPRECATED] Only used by the sorting machine in the legacy parcel center\nParcel weight.",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "Weight",
+          "fields": [
+            {
+              "name": "value",
+              "doc": "Actual weight in [g].",
+              "default": null,
+              "type": [
+                "null",
+                "int"
+              ]
+            },
+            {
+              "name": "scaleId",
+              "doc": "The id of the scale (e.g. HAE-024)",
+              "default": null,
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            {
+              "name": "state",
+              "doc": "Weighing errors",
+              "type": [
+                "null",
+                {
+                  "type": "record",
+                  "name": "WeightMeasurementState",
+                  "fields": [
+                    {
+                      "name": "isLegalForTrade",
+                      "doc": "False: Weight is not legal for trade.",
+                      "type": "boolean"
+                    },
+                    {
+                      "name": "packageDistanceError",
+                      "doc": "",
+                      "default": null,
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "name": "packageLengthError",
+                      "doc": "",
+                      "default": null,
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "name": "externalError",
+                      "doc": "",
+                      "default": null,
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "name": "invalidMeasurement",
+                      "doc": "",
+                      "default": null,
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "name": "overweight",
+                      "doc": "Weight higher than max. weight.",
+                      "default": null,
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "name": "underweight",
+                      "doc": "Weight lower than min weight.",
+                      "default": null,
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "name": "overload",
+                      "doc": "",
+                      "default": null,
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "name": "underload",
+                      "doc": "",
+                      "default": null,
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "name": "conveyorSpeedChangedDuringMeasurement",
+                      "doc": "",
+                      "default": null,
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "name": "conveyorSpeedOutOfMaxLimit",
+                      "doc": "",
+                      "default": null,
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "name": "alibiStorageAtScaleFailed",
+                      "doc": "",
+                      "default": null,
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "name": "scaleDataFormatError",
+                      "doc": "",
+                      "default": null,
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "default": null
+            }
+          ],
+          "doc": "Weight measurement of the mail piece."
+        }
+      ],
+      "default": null
+    }
+  ]
+}
