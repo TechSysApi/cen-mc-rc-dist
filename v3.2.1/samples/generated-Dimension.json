@@ -1,0 +1,14 @@
+{
+  "length": 54871325,
+  "width": -4732417,
+  "height": -79992233,
+  "state": {
+    "measurementResult": "NOK",
+    "measurementRange": "OUTSIDE",
+    "itemSizeClassification": {
+      "ok": false,
+      "oversized": true,
+      "undersized": true
+    }
+  }
+}

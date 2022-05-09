@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "definitions": {},
+  "type": "string",
+  "enum": [
+    "UNKNOWN",
+    "STANDARD_AREA",
+    "SEQUENCED_AREA",
+    "REJECT_AREA",
+    "SEQUENCED_OVERFLOW_AREA",
+    "MANUAL_CODING_STATION_AREA"
+  ],
+  "description": "Defines the outlet area. SEQ_AREA and SEQ_OV_AREA are not used for parcel sorting.\n- UNKNOWN: Default enum value to map not supported values.\n- STANDARD_AREA (STD_AREA): Area used for non-sequenced mail piece;\n- SEQUENCED_AREA(SEQ_AREA): Area used for sequenced mail piece;\n- REJECT_AREA: Area for SpecialSort: application specific (ZDS.SpecialVZ) or machine specific (ASL) destinations.\n- SEQUENCED_OVERFLOW_AREA(SEQ_OV_AREA): Area for overflow stackers, typically used in the 1st pass when the mail volume is not yet precisely known. This area consists of all the remaining stackers.\n- MANUAL_CODING_STATION_AREA (MCS_AREA): Area for manual coding systems",
+  "$id": "OutletArea",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}

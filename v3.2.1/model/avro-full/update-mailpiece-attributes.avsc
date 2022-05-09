@@ -1,0 +1,149 @@
+{
+  "namespace": "UpdateMailpieceAttributes",
+  "name": "main",
+  "type": "record",
+  "doc": "# GER-TODO\n\nDer Dienst ermöglicht der MC, aktualisierte oder zusätzliche Informationen in Bezug auf eine Postsendung zu übertragen,\ndie dem RC- System bereits vorgelegt worden ist. Solange sich die Postsendung zur Verarbeitung in der Maschine befindet, kann dieser\nDienst von der MC mehrfach ausgeführt werden.\nFür einen Sortierablauf ohne das Einscannen von Bildern (z.B.stationäre Bearbeitung im Zielfrachtzentrum oder Sortierung in der\nReihenfolge der Zustellung) kann mit diesem Dienst die Behälternummer zur Verfügung gestellt werden, in den die\nPostsendung physikalisch einsortiert wird; für diesen Fall muss kein submitMailpiece ausgeführt werden.",
+  "fields": [
+    {
+      "name": "locationKey",
+      "doc": "[ACTION] Attribute is required in future releases after WESort is rolled out in all sorting centers.\nUnique identifier of the sorting center (ONRP).",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "sortingProcess",
+      "doc": "[ACTION] Attribute is required in future releases after WESort is rolled out in all sorting centers.\nDefines the sorting process.",
+      "type": [
+        "null",
+        {
+          "type": "enum",
+          "name": "sortingProcess_enum",
+          "symbols": [
+            "AUTOMATIC",
+            "MANUAL_CODING_REJECT",
+            "MANUAL_CODING_LIGHT",
+            "MANUAL_CODING_BULK",
+            "MANUAL_CODING_BULK_AUTOMATIC"
+          ]
+        },
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "processingItemId",
+      "doc": "[ACTION] Attribute is required in future releases after WESort is rolled out in all sorting centers.\nThe machine specific identifier to track a mail item during a machine sorting cycle. The identifier is used to synchronize the data events between coding and sorting systems.",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "mailpieceId",
+      "doc": "[DEPRECATED] Is replaced by the attribute processingItemId. Attribute will be removed in future releases after WESort is rolled out in all sorting centers.\nThe machine specific identifier to track a mail item during a machine sorting cycle. The identifier is used to synchronize the data events between coding and sorting systems.",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "idTag",
+      "doc": "Represents a long living identifier for the mail item\n[DEPRECATED] Is replaced by the attribute idTags. Attribute will be removed in future releases when all target systems use the new field idTags.",
+      "default": null,
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "name": "timestamp",
+      "doc": "Timestamp of data collection.",
+      "type": "string"
+    },
+    {
+      "name": "sourceId",
+      "doc": "Refers to a module id as event-source.",
+      "type": "string"
+    },
+    {
+      "name": "weight",
+      "doc": "Weight of the mail piece in [g].",
+      "default": null,
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "sortBin",
+      "doc": "The name of the outlet to which the machine physically sorted the mail piece.\nThe outlet name is a 4 digit number.",
+      "type": "int"
+    },
+    {
+      "name": "code",
+      "doc": "The destination sort code is the outlet group name (Virtuelles Ziel) assigned to the mail piece.\nSpecific values are defined on a per-program basis.",
+      "default": null,
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "name": "finalCoded",
+      "doc": "A boolean value indicating whether or not processing for a mail piece is complete.\n\n- false: mail piece was discharged\n- true: Discharging was verified",
+      "type": "boolean"
+    },
+    {
+      "name": "sortReason",
+      "doc": "Only used when the sorting machine decided to sort the mail piece based on the sort reason.",
+      "type": [
+        "null",
+        {
+          "type": "enum",
+          "name": "sortReason_enum",
+          "symbols": [
+            "UNKNOWN",
+            "OK",
+            "MAX_RECIRCULATION",
+            "ITEM_NO_READ",
+            "ITEM_MULTIPLE_READ",
+            "SCANNER_TIMEOUT",
+            "ITEM_STRAY",
+            "ITEM_INDUCTION_ERROR",
+            "ITEM_DISCHARGE_ERROR",
+            "ITEM_ERROR",
+            "ITEM_TRACKING_ERROR",
+            "ITEM_OCCUPIED_TWICE_ERROR",
+            "ITEM_DISAPPEARED",
+            "OUTLET_NOT_AVAILABLE",
+            "OUTLET_UNKNOWN",
+            "UNDEFINED_ERROR",
+            "NO_CAPACITY",
+            "DIMENSION_ERROR",
+            "WEIGHT_ERROR",
+            "SORTPLAN_ERROR",
+            "DIRECT_SORTING_MODE",
+            "ITEM_NO_SORTCODE",
+            "OUTLET_MISSED"
+          ]
+        },
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "recirculations",
+      "doc": "The number of recirculations of the mail item on the sorter.",
+      "default": null,
+      "type": [
+        "null",
+        "int"
+      ]
+    }
+  ]
+}

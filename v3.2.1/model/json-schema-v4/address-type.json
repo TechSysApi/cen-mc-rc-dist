@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "type": "string",
+  "enum": [
+    "DOMICILE_ADDRESS",
+    "POBOX_ADDRESS",
+    "MILITARY_ADDRESS",
+    "OVERSEAS_ADDRESS",
+    "DOMICILE_CORRECTION_ADDRESS",
+    "POBOX_CORRECTION_ADDRESS",
+    "PAKETBASE_INTERNAL_ADDRESS",
+    "VCS_EXPIRED_INTERNAL_ADDRESS",
+    "MCS_REJECT_INTERNAL_ADDRESS",
+    "DEFERRED_VCS_INTERNAL_ADDRESS",
+    "TEST_TARGET_INTERNAL_ADDRESS"
+  ],
+  "description": "DOMICILE_ADDRESS(Old Value = D)\nPOBOX_ADDRESS(Old Value = F)\nMILITARY_ADDRESS(Old Value = M)\nOVERSEAS_ADDRESS(Old Value = A)\nDOMICILE_CORRECTION_ADDRESS(Old Value = K)\nPOBOX_CORRECTION_ADDRESS(Old Value = L)\nPAKETBASE_INTERNAL_ADDRESS(Old Value = X)\nVCS_EXPIRED_INTERNAL_ADDRESS(Old Value = E)\nMCS_REJECT_INTERNAL_ADDRESS(Old Value = R)\nDEFERRED_VCS_INTERNAL_ADDRESS(Old Value = V)\nTEST_TARGET_INTERNAL_ADDRESS(Old Value = T)",
+  "id": "AddressType",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}
