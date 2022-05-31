@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "definitions": {
+    "Int": {
+      "type": "integer",
+      "description": "<a href=\"https://swagger.io/docs/specification/data-models/data-types/#numbers\">Number @asType integer</a>"
+    }
+  },
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "An unique key inside the sort plan to identify\nthis occurrence of Position 🔑",
+      "maxLength": 200,
+      "required": true
+    },
+    "outletPosition": {
+      "type": "string",
+      "description": "The position within an outlet.\ni.e. \"1\" or \"A\"",
+      "maxLength": 200
+    },
+    "outlet": {
+      "type": "string",
+      "description": "The outlet name, where this position belongs to.\nThis is only needed, if this position is related to an outlet.\ni.e. for bulk sorting, no outlet is available.",
+      "maxLength": 200
+    },
+    "priority": {
+      "$ref": "#/definitions/Int",
+      "description": "Priority of the Position.\nThis is used for the distribution strategy.\n0 = Low priority",
+      "minimum": 0,
+      "required": true
+    }
+  },
+  "required": [
+    "name",
+    "priority"
+  ],
+  "additionalProperties": false,
+  "description": "A positions to sort to.",
+  "$id": "Position",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}

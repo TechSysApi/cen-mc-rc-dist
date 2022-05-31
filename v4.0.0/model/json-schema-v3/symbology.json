@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "definitions": {},
+  "type": "string",
+  "enum": [
+    "NOT_RECOGNIZED",
+    "ADDON",
+    "CODABAR",
+    "CODE_39",
+    "CODE_93",
+    "CODE_128",
+    "DATA_MATRIX",
+    "EAN_8",
+    "EAN_13",
+    "EAN_128",
+    "I2OF5",
+    "MAXI_CODE",
+    "PDF_417",
+    "QR",
+    "UPC_A",
+    "UPC_E",
+    "TEXT"
+  ],
+  "description": "NOT_RECOGNIZED The symbology is not recognized\nADDON Barcode Zusatz zu EAN und UPC\nCODABAR Barcode Codabar\nCODE_39 Barcode 39\nCODE_93 Barcode 93\nCODE_128 Barcode 128\nDATA_MATRIX Data Matrix Code\nEAN_8 International Article Number\nEAN_13 International Article Number\nEAN_128 International Article Number\nI2OF5 Interleved 2 of 5 Code\nMAXI_CODE Barcode Maxicode\nPDF_417 Barcode PDF417\nQR QR Barcode\nUPC_A Barcode Universal Product Codes (Normalversion)\nUPC_E Barcode Universal Product Codes (Kurzvariante)\nTEXT Text block (for example Postcode or AreaNumber for FLAT_BUNDLE)",
+  "id": "Symbology",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}
