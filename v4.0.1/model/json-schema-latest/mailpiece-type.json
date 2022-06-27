@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "definitions": {},
+  "type": "string",
+  "enum": [
+    "UNKNOWN",
+    "LETTER",
+    "LETTER_BUNDLE",
+    "FLAT",
+    "FLAT_BUNDLE",
+    "PARCEL"
+  ],
+  "description": "Defines the mailpiece type.\r\nUNKNOWN Unknown mailpiece type for the sorter\r\nLETTER Mail item (Brief)\r\nLETTER_BUNDLE Not supported\r\nFLAT Big letters mostly from China (Kleinware)\r\nFLAT_BUNDLE Bundle of mail items (Bund)\r\nPARCEL Parcel item (Paket)",
+  "$id": "MailpieceType",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}

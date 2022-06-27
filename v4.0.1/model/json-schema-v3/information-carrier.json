@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "definitions": {},
+  "type": "object",
+  "properties": {
+    "symbology": {
+      "$ref": "symbology.json",
+      "description": "Symbology of an information carrier",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "description": "Value of an information carrier",
+      "required": true
+    }
+  },
+  "additionalProperties": false,
+  "description": "Identified and captured information carrier (e.g. barcodes, logos)",
+  "id": "InformationCarrier",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}

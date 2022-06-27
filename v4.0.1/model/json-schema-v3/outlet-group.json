@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "definitions": {
+    "Int": {
+      "type": "integer",
+      "description": "<a href=\"https://swagger.io/docs/specification/data-models/data-types/#numbers\">Number @asType integer</a>"
+    }
+  },
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "A unique key inside the sort plan to identify this occurrence of OutletGroup\nPrimary key 🔑",
+      "maxLength": 200,
+      "required": true
+    },
+    "specialType": {
+      "$ref": "outlet-area.json",
+      "description": "Defines the usage made of the outlet group."
+    },
+    "outlets": {
+      "type": "array",
+      "items": {
+        "$ref": "outlet.json"
+      },
+      "description": "The list of physical outlets to be used.\ni.e. Endstellen"
+    },
+    "positions": {
+      "type": "array",
+      "items": {
+        "$ref": "position.json"
+      },
+      "description": "The list of positions to be used.\ni.e. RX-Stellplatz"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Groupings of physical outlets for each sequencing pass",
+  "id": "OutletGroup",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "definitions": {
+    "DateTime": {
+      "type": "string",
+      "description": "<a href=\"https://swagger.io/docs/specification/data-models/data-types/#string\">String @format date-time</a>,\nas defined by <a href=\"https://tools.ietf.org/html/rfc3339#section-5.6\">RFC 3339, section 5.6</a>,\nfor example: <code>2014-05-22T10:42:42.542+00:00</code>.",
+      "format": "date-time"
+    },
+    "Int": {
+      "type": "integer",
+      "description": "<a href=\"https://swagger.io/docs/specification/data-models/data-types/#numbers\">Number @asType integer</a>"
+    },
+    "Long": {
+      "type": "integer",
+      "description": "<a href=\"https://swagger.io/docs/specification/data-models/data-types/#numbers\">Number @asType integer</a> as signed 64-bit long integer.",
+      "minimum": -9223372036854775000,
+      "maximum": 9223372036854775000,
+      "format": "int64"
+    }
+  },
+  "type": "object",
+  "properties": {
+    "locationKey": {
+      "type": "string",
+      "description": "[ACTION] Attribute is required in future releases after WESort is rolled out in all sorting centers.\nUnique identifier of the sorting center (ONRP).",
+      "maxLength": 200
+    },
+    "sortingProcess": {
+      "$ref": "sorting-process.json",
+      "description": "[ACTION] Attribute is required in future releases after WESort is rolled out in all sorting centers.\nDefines the sorting process."
+    },
+    "processingItemId": {
+      "type": "string",
+      "description": "[ACTION] Attribute is required in future releases after WESort is rolled out in all sorting centers.\nThe machine specific identifier to track a mail item during a machine sorting cycle. The identifier is used to synchronize the data events between coding and sorting systems.",
+      "maxLength": 32
+    },
+    "mailpieceId": {
+      "type": "string",
+      "description": "[DEPRECATED] Is replaced by the attribute processingItemId. Attribute will be removed in future releases after WESort is rolled out in all sorting centers.\nThe machine specific identifier to track a mail item during a machine sorting cycle. The identifier is used to synchronize the data events between coding and sorting systems.",
+      "maxLength": 200
+    },
+    "timestamp": {
+      "$ref": "#/definitions/DateTime",
+      "description": "Timestamp of data collection.",
+      "required": true
+    },
+    "addressResult": {
+      "$ref": "address-result.json"
+    },
+    "weight": {
+      "$ref": "weight.json",
+      "description": "[DEPRECATED] Only used by the sorting machine in the legacy parcel center\nParcel weight."
+    }
+  },
+  "required": [
+    "timestamp"
+  ],
+  "additionalProperties": false,
+  "description": "This type contains the result for a mail piece that has been determined by the RC System.",
+  "$id": "TransmitMailpieceAttributes",
+  "dotnetNamespace": "Ch.Post.PL.Api.CenMcRc.V1"
+}
